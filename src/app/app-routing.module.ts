@@ -4,7 +4,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 const routes: Routes = [
   {
+    path: '',
+    loadChildren: () => import('./features/delete-me/delete-me.module').then((m) => m.DeleteMeModule),
+  },
+  {
     path: '**',
+    pathMatch: 'full',
     component: PageNotFoundComponent,
   },
 ];
